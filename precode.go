@@ -21,6 +21,7 @@ func Generator(ctx context.Context, ch chan<- int64, fn func(int64)) {
 		case ch <- i:
 			fn(i)
 			time.Sleep(1 * time.Second) // Для демонстрации, чтобы числа генерировались не мгновенно
+			return
 		}
 	}
 }
